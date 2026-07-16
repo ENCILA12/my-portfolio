@@ -877,4 +877,21 @@ footer {
         width: 100%;
         justify-content: center;
     }
+    .profile-glow {
+        width: 250px;
+        height: 250px;
+    }
+    .stats-row {
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+    .section {
+        padding: 80px 5%;
+    }
+    .contact-box {
+        padding: 60px 20px;
+    }
+    .blob-bg {
+        display: none; /* Hide background blobs on mobile to completely eliminate side overflow risks */
+    }
 }
