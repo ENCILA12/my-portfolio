@@ -9,6 +9,9 @@
     --accent: #8b5cf6;
     --cyan: #06b6d4;
     --green: #10b981;
+    --blue: #3b82f6;
+    --yellow: #eab308;
+    --purple: #a855f7;
     
     --glass-bg: rgba(255, 255, 255, 0.03);
     --glass-border: rgba(255, 255, 255, 0.08);
@@ -487,6 +490,46 @@ body {
 .skill-card p {
     color: var(--text-muted);
     font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Services Section */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    padding: 40px 30px;
+    text-align: left;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+    border-top: 4px solid transparent;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+.service-card:nth-child(1):hover { border-top-color: var(--blue); }
+.service-card:nth-child(2):hover { border-top-color: var(--yellow); }
+.service-card:nth-child(3):hover { border-top-color: var(--purple); }
+
+.service-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.service-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.service-card p {
+    color: var(--text-muted);
     line-height: 1.6;
 }
 
