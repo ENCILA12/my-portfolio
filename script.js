@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Intersection Observer for fade-in animations
+    // Intersection Observer for scroll animations
     const observerOptions = {
         root: null,
         rootMargin: '0px',
@@ -21,11 +21,32 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                observer.unobserve(entry.target); // Stop observing once visible
+                // Optional: stop observing to only animate once
+                observer.unobserve(entry.target); 
             }
         });
     }, observerOptions);
 
-    const fadeElements = document.querySelectorAll('.fade-in');
-    fadeElements.forEach(el => observer.observe(el));
+    // Observe all animated elements
+    const animatedElements = document.querySelectorAll('.fade-in, .fade-in-up, .zoom-in');
+    animatedElements.forEach(el => observer.observe(el));
+
+    // Typing Effect for Hero Title
+    const typeTarget = document.querySelector('.type-effect');
+    if (typeTarget) {
+        const textToType = typeTarget.innerText;
+        typeTarget.innerText = '';
+        let i = 0;
+        
+        function typeWriter() {
+            if (i < textToType.length) {
+                typeTarget.innerHTML += textToType.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        }
+        
+        // Start typing effect after a small delay
+        setTimeout(typeWriter, 800);
+    }
 });
